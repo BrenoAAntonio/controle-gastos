@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    
     <title>Cadastro de Despesa</title>
 </head>
 <body>
-    <h1>Cadastrar Nova Despesa</h1>
-    <form th:action="@{/despesas}" th:object="${despesa}" method="post">
-        <div>
-            <label>Descrição:</label>
-            <input type="text" th:field="*{descricao}" />
-        </div>
-        <div>
-            <label>Valor:</label>
-            <input type="number" step="0.01" th:field="*{valor}" />
-        </div>
-        <div>
-            <label>Data:</label>
-            <input type="date" th:field="*{data}" />
-        </div>
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="glass-container">
+        <h1>Cadastrar Nova Despesa</h1>
+        
+        <form th:action="@{/despesas}" th:object="${despesa}" method="post">
+            <div>
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" th:field="*{descricao}" placeholder="Ex: Almoço" required />
+            </div>
+            <div>
+                <label for="valor">Valor (R$):</label>
+                <input type="number" id="valor" step="0.01" th:field="*{valor}" placeholder="Ex: 25.50" required />
+            </div>
+            <div>
+                <label for="data">Data:</label>
+                <input type="date" id="data" th:field="*{data}" required />
+            </div>
+            <button type="submit" class="btn">Salvar Despesa</button>
+        </form>
+        
+        <a th:href="@{/despesas}" class="back-link">Voltar para a Lista</a>
+    </div>
 </body>
 </html>
