@@ -11,6 +11,7 @@
         <h1>Minhas Despesas</h1>
         
         <a th:href="@{/despesas/novo}" class="btn">Adicionar Nova Despesa</a>
+        <a th:href="@{/categorias}" class="btn" style="background-color: #2b2d42;">Gerenciar Categorias</a>
         
         <table>
             <thead>
@@ -24,7 +25,7 @@
             <tbody>
                 <tr th:each="despesa : ${listaDespesas}">
                     <td th:text="${despesa.descricao}">Lanche</td>
-                    <td th:text="${despesa.categoria?.nome}">Lazer</td> <!-- NOVA COLUNA -->
+                    <td th:text="${despesa.categoria?.nome}">Lazer</td>
                     <td th:text="${'R$ ' + #numbers.formatDecimal(despesa.valor, 1, 'POINT', 2, 'COMMA')}">R$ 30,00</td>
                     <td th:text="${#temporals.format(despesa.data, 'dd/MM/yyyy')}">28/09/2025</td>
                 </tr>

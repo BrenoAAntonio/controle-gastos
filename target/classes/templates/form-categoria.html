@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <title>Formulário de Categoria</title>
+</head>
+<body>
+    <div class="glass-container">
+        <h1>Nova Categoria</h1>
+        
+        <form th:action="@{/categorias}" th:object="${categoria}" method="post">
+            <div>
+                <label for="nome">Nome da Categoria:</label>
+                <input type="text" id="nome" th:field="*{nome}" placeholder="Ex: Moradia" required />
+            </div>
+            
+            <button type="submit" class="btn">Salvar Categoria</button>
+        </form>
+        
+        <a th:href="@{/categorias}" class="back-link">Cancelar e Voltar</a>
+    </div>
+</body>
+</html>

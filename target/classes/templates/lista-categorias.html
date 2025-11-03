@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <title>Gerenciar Categorias</title>
+</head>
+<body>
+    <div class="glass-container">
+        <h1>Gerenciar Categorias</h1>
+        
+        <a th:href="@{/categorias/novo}" class="btn">Adicionar Nova Categoria</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome da Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${#lists.isEmpty(listaCategorias)}">
+                    <td colspan="1">Nenhuma categoria cadastrada.</td>
+                </tr>
+                <tr th:each="categoria : ${listaCategorias}">
+                    <td th:text="${categoria.nome}"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a th:href="@{/despesas}" class="back-link">Voltar para Despesas</a>
+    </div>
+</body>
+</html>
