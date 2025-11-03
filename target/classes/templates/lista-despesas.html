@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style.css}">
-
     <title>Lista de Despesas</title>
 </head>
 <body>
@@ -17,6 +16,7 @@
             <thead>
                 <tr>
                     <th>Descrição</th>
+                    <th>Categoria</th> <!-- NOVA COLUNA -->
                     <th>Valor</th>
                     <th>Data</th>
                 </tr>
@@ -24,6 +24,7 @@
             <tbody>
                 <tr th:each="despesa : ${listaDespesas}">
                     <td th:text="${despesa.descricao}">Lanche</td>
+                    <td th:text="${despesa.categoria?.nome}">Lazer</td> <!-- NOVA COLUNA -->
                     <td th:text="${'R$ ' + #numbers.formatDecimal(despesa.valor, 1, 'POINT', 2, 'COMMA')}">R$ 30,00</td>
                     <td th:text="${#temporals.format(despesa.data, 'dd/MM/yyyy')}">28/09/2025</td>
                 </tr>

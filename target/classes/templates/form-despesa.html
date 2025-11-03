@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style.css}">
-    
     <title>Cadastro de Despesa</title>
 </head>
 <body>
@@ -16,6 +15,19 @@
                 <label for="descricao">Descrição:</label>
                 <input type="text" id="descricao" th:field="*{descricao}" placeholder="Ex: Almoço" required />
             </div>
+            
+            <!-- CAMPO NOVO DE CATEGORIA -->
+            <div>
+                <label for="categoria">Categoria:</label>
+                <select id="categoria" th:field="*{categoria}" required>
+                    <option value="">Selecione uma categoria</option>
+                    <option th:each="cat : ${todasCategorias}"
+                            th:value="${cat.id}"
+                            th:text="${cat.nome}">
+                    </option>
+                </select>
+            </div>
+            
             <div>
                 <label for="valor">Valor (R$):</label>
                 <input type="number" id="valor" step="0.01" th:field="*{valor}" placeholder="Ex: 25.50" required />

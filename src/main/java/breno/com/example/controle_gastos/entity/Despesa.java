@@ -5,7 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 @Entity
 public class Despesa {
 
@@ -17,6 +18,10 @@ public class Despesa {
     private double valor;
     private LocalDate data;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+    
     public Long getId() {
         return id;
     }
@@ -40,5 +45,12 @@ public class Despesa {
     }
     public void setData(LocalDate data) {
         this.data = data;
+    }
+    
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
