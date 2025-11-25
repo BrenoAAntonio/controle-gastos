@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <title>Login - Controle de Gastos</title>
+</head>
+<body>
+    <div class="glass-container" style="max-width: 400px;">
+        <h1>Login</h1>
+
+        <div th:if="${param.error}" style="color: #ef233c; text-align: center; margin-bottom: 1rem;">
+            Email ou senha inválidos.
+        </div>
+        
+        <div th:if="${param.cadastroSucesso}" style="color: #2a9d8f; text-align: center; margin-bottom: 1rem;">
+            Cadastro realizado com sucesso! Faça o login.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div>
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="username" required />
+            </div>
+            <div>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+        
+        <a th:href="@{/cadastro}" class="back-link">Não tem uma conta? Cadastre-se</a>
+    </div>
+</body>
+</html>

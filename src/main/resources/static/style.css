@@ -8,9 +8,8 @@ body {
     color: #edf2f4;
     display: flex;
     justify-content: center;
-    align-items: flex-start;/
+    align-items: flex-start;
 }
-
 
 .glass-container {
     width: 100%;
@@ -23,7 +22,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
-
 
 h1 {
     text-align: center;
@@ -80,7 +78,9 @@ label {
 
 input[type="text"],
 input[type="number"],
-input[type="date"] {
+input[type="date"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
@@ -95,6 +95,21 @@ input::placeholder {
     color: rgba(237, 242, 244, 0.5);
 }
 
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+select option {
+    background: #2b2d42;
+    color: #edf2f4;
+}
 
 table {
     width: 100%;
@@ -115,7 +130,6 @@ thead {
 th {
     font-weight: 600;
 }
-
 
 @media (max-width: 600px) {
     body {

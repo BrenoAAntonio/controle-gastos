@@ -8,7 +8,12 @@
 </head>
 <body>
     <div class="glass-container">
-        <h1>Minhas Despesas</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h1 style="margin: 0;">Minhas Despesas</h1>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn" style="margin: 0; background-color: #6c757d;">Logout</button>
+            </form>
+        </div>
         
         <a th:href="@{/despesas/novo}" class="btn">Adicionar Nova Despesa</a>
         <a th:href="@{/categorias}" class="btn" style="background-color: #2b2d42;">Gerenciar Categorias</a>
@@ -17,17 +22,17 @@
             <thead>
                 <tr>
                     <th>Descrição</th>
-                    <th>Categoria</th> <!-- NOVA COLUNA -->
+                    <th>Categoria</th>
                     <th>Valor</th>
                     <th>Data</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="despesa : ${listaDespesas}">
-                    <td th:text="${despesa.descricao}">Lanche</td>
-                    <td th:text="${despesa.categoria?.nome}">Lazer</td>
-                    <td th:text="${'R$ ' + #numbers.formatDecimal(despesa.valor, 1, 'POINT', 2, 'COMMA')}">R$ 30,00</td>
-                    <td th:text="${#temporals.format(despesa.data, 'dd/MM/yyyy')}">28/09/2025</td>
+                    <td th:text="${despesa.descricao}"></td>
+                    <td th:text="${despesa.categoria?.nome}"></td>
+                    <td th:text="${'R$ ' + #numbers.formatDecimal(despesa.valor, 1, 'POINT', 2, 'COMMA')}"></td>
+                    <td th:text="${#temporals.format(despesa.data, 'dd/MM/yyyy')}"></td>
                 </tr>
             </tbody>
         </table>

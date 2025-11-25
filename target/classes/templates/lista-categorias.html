@@ -8,7 +8,12 @@
 </head>
 <body>
     <div class="glass-container">
-        <h1>Gerenciar Categorias</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h1 style="margin: 0;">Gerenciar Categorias</h1>
+        <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn" style="margin: 0; background-color: #6c757d;">Logout</button>
+        </form>
+        </div>
         
         <a th:href="@{/categorias/novo}" class="btn">Adicionar Nova Categoria</a>
         
